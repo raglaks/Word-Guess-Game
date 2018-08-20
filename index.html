@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Hangman</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+                <div><h1>Hangman</h1></div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4" id="game">
+                <h4>Press any key to start.</h4>
+                <h4>Guess the word by typing letters.</h4>
+                <h4>You have seven guesses before the poor man is hung.</h4>
+                <h4>Try and save him.</h4>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="assets/images/Hangman-0.png" alt="first hangman pic">
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 text-center">
+                
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4 text-center">
+                CLUE OR PIC GOES HERE
+            </div>
+            <div class="col-lg-4 text-center">
+                <div id="currentWord">_ _ _ _ _</div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+    <br>
+
+    <script>
+        document.onkeyup = function(event) {
+            var letter = event.key.toLowerCase();
+            console.log(letter);
+
+            if (event) {
+                var gameStart = document.getElementById("game");
+                gameStart.innerHTML("GAME HAS STARTED.");
+            }
+        }
+        
+        
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
