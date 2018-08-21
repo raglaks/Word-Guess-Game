@@ -22,14 +22,17 @@
 
         <div class="row">
             <div class="col-lg-2"></div>
-            <div class="col-lg-4" id="game">
-                <h4>Press any key to start.</h4>
-                <h4>Guess the word by typing letters.</h4>
-                <h4>You have seven guesses before the poor man is hung.</h4>
-                <h4>Try and save him.</h4>
+            <div class="col-lg-4" id="guess">
+                <h5>letters guessed:</h5>
+                <!-- <span id="guess"></span> -->
+                <!-- <h6>Press any key to start.</h6>
+                <h6>Guess the word by typing letters.</h6>
+                <h6>You have seven guesses before the poor man is hung.</h6>
+                <h6>Try and save him.</h6> -->
             </div>
             <div class="col-lg-4 text-center">
                 <img src="assets/images/Hangman-0.png" alt="first hangman pic">
+                <!-- <img src="assets/images/Hangman-1.png" alt="second hangman pic"> -->
             </div>
             <div class="col-lg-2"></div>
         </div>
@@ -58,16 +61,46 @@
     <br>
 
     <script>
-        document.onkeyup = function(event) {
-            var letter = event.key.toLowerCase();
-            console.log(letter);
+        //array with hangman words
+        var words=["absurd", "bikini", "cobweb", "dwarves", "equip"]
 
-            if (event) {
-                var gameStart = document.getElementById("game");
-                gameStart.innerHTML("GAME HAS STARTED.");
-            }
-        }
+        //function to detect key being pressed and run the start game function
+        document.onkeyup = function(event) {
+            startGame();
+            // console.log(event);
+        }        
         
+        //function to start game
+        //variable for key pressed is created
+        //variable to create a div for displaying players' guesses is created
+        //variable to add the letter value to the innerhtml of the div is created
+        //variable created to identify html id and update it with user guesses
+        function startGame() {
+            var letter = event.key.toLowerCase();
+            var div = document.createElement("div");
+            var inner = div.innerHTML=letter;
+            document.getElementById("guess").appendChild(div);
+            console.log(letter);
+        }
+
+        //function to choose random word from array for player to guess
+        //function also splits the word into characters for the letter guessing functionality
+        function wordCheck() {
+            var currentWord = words[Math.floor(Math.random() * words.length)];
+            console.log(currentWord);
+
+            for (i=0; i<currentWord.length; i++) {
+                // console.log(currentWord.charAt([i]));
+                var wordString = currentWord.charAt([i]);
+                console.log(wordString);
+
+                
+            }
+
+  
+        }
+
+        // wordCheck();
         
     </script>
     
