@@ -13,3 +13,14 @@
 .col-lg-3{
     border: solid;
 }
+
+.col-lg-10{
+    border: solid;
+}
+
+.countries{
+    width:700px;
+    height:auto;
+    display: none;
+}
+

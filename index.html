@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8 text-center">
-                <div><h1>Hangman</h1></div>
+                <div><h1>Geo-Hangman</h1></div>
             </div>
             <div class="col-lg-2"></div>
         </div>
@@ -31,8 +31,24 @@
                 <h6>Try and save him.</h6> -->
             </div>
             <div class="col-lg-4 text-center">
-                <img src="assets/images/Hangman-0.png" alt="first hangman pic">
+                <h5>guess the capital of the country in red:</h5>
+                <span id="1">_</span><span id="2">_</span><span id="3">_</span><span id="4">_</span><span id="5">_</span><span id="6">_</span><span id="7">_</span><span id="8">_</span><span id="9">_</span><span id="10">_</span>
                 <!-- <img src="assets/images/Hangman-1.png" alt="second hangman pic"> -->
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <img src="assets/images/china.png" alt="china map" class="countries" id="china">
+                <img src="assets/images/brazil.png" alt="brazil map" class="countries" id="brazil">
+                <img src="assets/images/egypt.png" alt="egypt map" class="countries" id="egypt">
+                <img src="assets/images/france.png" alt="france map" class="countries" id="france">
+                <img src="assets/images/germany.png" alt="germany map" class="countries" id="germany">
+                <img src="assets/images/newzealand.png" alt="newzealand map" class="countries" id="newzealand">
+                <img src="assets/images/pakistan.png" alt="pakistan map" class="countries" id="pakistan">
+                <img src="assets/images/southafrica.png" alt="southafrica map" class="countries" id="southafrica">
             </div>
             <div class="col-lg-2"></div>
         </div>
@@ -47,61 +63,114 @@
 
         <br>
 
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-4 text-center">
-                CLUE OR PIC GOES HERE
-            </div>
-            <div class="col-lg-4 text-center">
-                <div id="currentWord">_ _ _ _ _</div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
     </div>
     <br>
 
     <script>
         //array with hangman words
-        var words=["absurd", "bikini", "cobweb", "dwarves", "equip"]
-
+        //"BRASILIA", "CAIRO", "PARIS", "BERLIN", "WELLINGTON", "ISLAMABAD", "PRETORIA"
+        var words=["BEIJING"];
+        var letters=[];
+        var currentWord = words[Math.floor(Math.random() * words.length)];
+        var guesses = 0;
+        // var wordLetters=[];
         //function to detect key being pressed and run the start game function
         document.onkeyup = function(event) {
             startGame();
+            wordMatch();
+            // wordSplit();
             // console.log(event);
         }        
+
+        function compareBei() {
+            for (guesses=0; guesses = 10; guesses++) {
+                function bB()
+                //  else if (letters.includes("E")) {
+                //     var id = document.getElementById("2");
+                //     var html = id.innerHTML="E";
+                // } else if (letters.includes("I")) {
+                //     var id = document.getElementById("3");
+                //     var html = id.innerHTML="I";
+                //     var id1 = document.getElementById("5");
+                //     var html1 = id1.innerHTML="I";
+                // } else if (letters.includes("J")) {
+                //     var id = document.getElementById("4");
+                //     var html = id.innerHTML="J";
+                // } else if (letters.includes("N")) {
+                //     var id = document.getElementById("6");
+                //     var html = id.innerHTML="N";
+                // } else if (letters.includes("G")) {
+                //     var id = document.getElementById("7");
+                //     var html = id.innerHTML="G";
+                // }
+                // console.log(letters.length);
+            }
+        }
+
+        function bB() {
+            if (letters.includes("B")) {
+                    var id = document.getElementById("1");
+                    var html = id.innerHTML="B";
+                }
+        }
+
+        // function wordSplit() {
+        //     for (i=0; i<currentWord.length; i++) {
+        //         var separate = currentWord.charAt(i);
+        //         wordLetters.push(separate);
+        //         console.log("current word letters split into characters: " + wordLetters);
+        //     }
+        // }
         
         //function to start game
         //variable for key pressed is created
         //variable to create a div for displaying players' guesses is created
         //variable to add the letter value to the innerhtml of the div is created
         //variable created to identify html id and update it with user guesses
+        //letter is then pushed to global letters array
         function startGame() {
-            var letter = event.key.toLowerCase();
+            var letter = event.key.toUpperCase();
             var div = document.createElement("div");
             var inner = div.innerHTML=letter;
             document.getElementById("guess").appendChild(div);
-            console.log(letter);
+            letters.push(letter);
+            console.log("letters pressed array: " + letters);
+            console.log("letter pressed: " + letter);
+            //for loop to split current word into letters 
         }
 
-        //function to choose random word from array for player to guess
-        //function also splits the word into characters for the letter guessing functionality
-        function wordCheck() {
-            var currentWord = words[Math.floor(Math.random() * words.length)];
-            console.log(currentWord);
+        //function matches random word with map showing country
+        function wordMatch() {
+            console.log("random capital chosen: " + currentWord);
 
-            for (i=0; i<currentWord.length; i++) {
-                // console.log(currentWord.charAt([i]));
-                var wordString = currentWord.charAt([i]);
-                console.log(wordString);
+            if (currentWord === "BEIJING") {
+                document.getElementById("china").style.display = "block";
+                compareBei();
+                // document.getElementById("currentWord").textContent("_ _ _ _ _ _ _");
+            } else if (currentWord === "BRASILIA") {
+                document.getElementById("brazil").style.display = "block";
+                // document.getElementById("currentWord").textContent("_ _ _ _ _ _ _ _");
+            } else if (currentWord === "CAIRO") {
+                document.getElementById("egypt").style.display = "block";
+                // document.getElementById("currentWord").textContent("_ _ _ _ _");
+            } else if (currentWord === "PARIS") {
+                document.getElementById("france").style.display = "block";
+                // document.getElementById("currentWord").textContent("_ _ _ _ _");
+            } else if (currentWord === "BERLIN") {
+                document.getElementById("germany").style.display = "block";
+                // document.getElementById("currentWord").textContent("_ _ _ _ _ _");
+            } else if (currentWord === "WELLINGTON") {
+                document.getElementById("newzealand").style.display = "block";
+                // document.getElementById("currentWord").textContent("_ _ _ _ _ _ _ _ _ _");
+            } else if (currentWord === "ISLAMABAD") {
+                document.getElementById("pakistan").style.display = "block";
+                // document.getElementById("currentWord").textContent("_ _ _ _ _ _ _ _ _");
+            } else if (currentWord === "PRETORIA") {
+                document.getElementById("southafrica").style.display = "block";
+                // document.getElementById("currentWord").textContent("_ _ _ _ _ _ _ _");
+            } 
 
-                
-            }
-
-  
-        }
-
-        // wordCheck();
-        
+        } 
     </script>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
